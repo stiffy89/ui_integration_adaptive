@@ -1,0 +1,97 @@
+{
+	"_version": "1.14.0",
+	"sap.app": {
+		"id": "ns.ui_integration_adaptive",
+		"type": "card",
+		"title": "Adaptive Card",
+		"subTitle": "",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+        "deviceTypes": {"desktop": true, "phone": true, "tablet": true},
+		"icons": {
+			"icon": "sap-icon://list"
+		}
+	},
+	"sap.card": {
+		"extension": "adaptiveCardExtension",
+		"type": "AdaptiveCard",
+        "designtime": "dt/configuration",
+		"header": {
+			"title": "Adaptive Card with long text"
+		},
+		"data" : {
+			"extension" : {
+				"method" : "getData"
+			},
+			"path" : "/"
+		},
+		"content": {
+			"$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+			"body": [
+				{
+					"type": "TextBlock",
+					"text": "${text}",
+					"wrap": true,
+					"maxLines" : "${maxLines}"
+				},
+				{
+					"type": "RichTextBlock",
+					"inlines" : [
+						{
+							"type": "TextRun",
+							"text": "Text ",
+							"size": "small"
+						},
+						{
+							"type": "TextRun",
+							"text": "of ",
+							"size": "medium"
+						},
+						{
+							"type": "TextRun",
+							"text": "all ",
+							"size": "large"
+						},
+						{
+							"type": "TextRun",
+							"text": "sizes! ",
+							"size": "extraLarge"
+						},
+						{
+							"type": "TextRun",
+							"text": "And different fonts ",
+							"fontType": "monospace"
+						},
+						{
+							"type": "TextRun",
+							"text": "and colors!",
+							"color": "good"
+						}
+					]
+				}
+			]
+		},
+		"footer" : {
+			"actionsStrip" : [
+				{
+					"text" : "{buttonText}",
+					"actions" : [
+						{
+							"type": "Custom",
+							"parameters": {
+								"method": "{buttonText}"
+							}
+						}
+					]
+				}
+			]
+		}
+	},
+    "sap.platform.mobilecards": {
+        "compatible": false
+    }
+} 
